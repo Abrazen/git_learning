@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.youcash.facade.channel</groupId>
+	<artifactId>youcash-facade-channel</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<name>服务开放前置 - 渠道接入</name>
+	<description>服务开放前置 - 渠道接入</description>
+	
+	 <properties>
+	 	<!-- 服务开放前置框架版本信息 -->
+		<youcash-facade-base-domain.version>1.0.0-SNAPSHOT</youcash-facade-base-domain.version>
+        <youcash-facade-base-api.version>1.0.0-SNAPSHOT</youcash-facade-base-api.version>
+        <youcash-facade-base-service.version>1.0.0-SNAPSHOT</youcash-facade-base-service.version>
+		 <youcash-facade-admin-channel-api.version>1.0.0-SNAPSHOT</youcash-facade-admin-channel-api.version>
+
+		 <!-- 第三方接入的版本信息 -->
+        <youcash-facade-channel-standard.version>1.0.0-SNAPSHOT</youcash-facade-channel-standard.version>
+		<youcash-facade-channel-lakala.version>1.0.0-SNAPSHOT</youcash-facade-channel-lakala.version>
+		<youcash-facade-channel-youla.version>1.0.0-SNAPSHOT</youcash-facade-channel-youla.version>
+		<youcash-facade-channel-gongjijin.version>1.0.0-SNAPSHOT</youcash-facade-channel-gongjijin.version>
+    	<youcash-facade-channel-xiaomi.version>1.0.0-SNAPSHOT</youcash-facade-channel-xiaomi.version>
+		 <youcash-facade-channel-guomei.version>1.0.0-SNAPSHOT</youcash-facade-channel-guomei.version>
+    </properties>
+    
+	<modules>		
+		<!-- 暂时只针对优啦进行部署，其他渠道待开发
+		<module>youcash-facade-channel-standard</module>
+		<module>youcash-facade-channel-lakala</module>
+		 -->
+		<module>youcash-facade-channel-common</module>
+		<module>youcash-facade-channel-gongjijin</module>
+		<module>youcash-facade-channel-youla</module>
+		<module>youcash-facade-channel-xiaomi</module>
+		<module>youcash-facade-channel-guomei</module>
+		<module>youcash-facade-channel-jdbt</module>
+		<module>youcash-facade-channel-xuechefq</module>
+		<module>youcash-facade-channel-jiebei</module>
+		<module>youcash-facade-channel-qunar</module>
+		<module>youcash-facade-channel-jiebei-xe</module>
+		<module>youcash-facade-channel-jdjt</module>
+		<module>youcash-facade-channel-ctrip</module>
+		<module>youcash-facade-channel-cmpay</module>
+		<module>youcash-facade-channel-jdxh</module>
+		<module>youcash-facade-channel-cycle</module>
+		<module>youcash-facade-channel-toutiao</module>
+  </modules>
+	
+	<parent>
+		<groupId>com.youcash.foundation.sdk</groupId>
+		<artifactId>youcash-sdk-parent2</artifactId>
+		<version>2.0.0-SNAPSHOT</version>
+		<relativePath/>
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.youcash.facade.channel</groupId>
+				<artifactId>youcash-facade-channel-standard</artifactId>
+				<version>${youcash-facade-channel-standard.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.youcash.facade.channel</groupId>
+				<artifactId>youcash-facade-channel-lakala</artifactId>
+				<version>${youcash-facade-channel-lakala.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.youcash.facade.channel</groupId>
+				<artifactId>youcash-facade-channel-youla</artifactId>
+				<version>${youcash-facade-channel-youla.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.youcash.facade.channel</groupId>
+				<artifactId>youcash-facade-channel-gongjijin</artifactId>
+				<version>${youcash-facade-channel-gongjijin.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+	
+        <!-- business project (facade) dependencies -->
+        <dependency>
+            <groupId>com.youcash.facade.base</groupId>
+            <artifactId>youcash-facade-base-domain</artifactId>         
+            <version>${youcash-facade-base-domain.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.youcash.facade.base</groupId>
+            <artifactId>youcash-facade-base-api</artifactId>
+            <version>${youcash-facade-base-api.version}</version>
+        </dependency>
+        <dependency>
+			<groupId>com.youcash.facade.base</groupId>
+			<artifactId>youcash-facade-base-service</artifactId>
+			<version>${youcash-facade-base-service.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.youcash.facade.admin.channel</groupId>
+			<artifactId>youcash-facade-admin-channel-api</artifactId>
+			<version>${youcash-facade-admin-channel-api.version}</version>
+		</dependency>
+
+	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>second</id>
+			<name>second_repo</name>
+			<url>http://repo1.maven.org/maven2</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>spring-snapshots</id>
+			<name>Spring Snapshots</name>
+			<url>https://repo.spring.io/libs-snapshot</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>third</id>
+			<name>third_repo</name>
+			<url>http://20.223.0.4/nexus/repository/maven-public</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<updatePolicy>always</updatePolicy>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	
+</project>
