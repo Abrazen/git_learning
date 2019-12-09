@@ -8,7 +8,7 @@
 	<packaging>pom</packaging>
 	
 	<name>服务开放前置 - 渠道接入</name>
-	<description>服务开放前置 - 渠道接入</description>
+	<description>服务开放前置 - 渠道接入 </description>
 	
 	 <properties>
 	 	<!-- 服务开放前置框架版本信息 -->
